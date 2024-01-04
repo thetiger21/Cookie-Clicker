@@ -19,7 +19,7 @@ class CookieClicker(toga.App):
         name_box = toga.Box(style=Pack(direction=ROW, padding=5))
         name_box.add(self.cookievalue)
         image = toga.Image("cookie.png")
-        view = toga.ImageView(image on_press="clickedcookies")
+        view = toga.ImageView(image on_press=self.clickedcookies)
         main_box.add(name_box)
         main_box.add(button)
         self.main_window = toga.MainWindow(title=self.formal_name)
