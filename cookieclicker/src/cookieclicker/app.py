@@ -42,7 +42,6 @@ def reset():
    f.close()
    cookiestring = open('29ei923i[1s.txt').read()
    cookies = int(cookiestring)
-   counter.value = cookies
    numstring = open('3oi2l;s[1=2-[r3;lke.,wm.txt').read()        
    num = int(numstring)
 
@@ -147,12 +146,10 @@ class CookieClicker(toga.App):
 
 
    def startup(self):
-        try: 
-          f = open("29ei923i[1s.txt", "r")
-          f = open("3oi2l;s[1=2-[r3;lke.,wm.txt", "r")
-          f = open("09ij.txt", "r")
-
-        load()
+        try:
+           load()
+        except:
+           reset()
         main_box = toga.Box(style=Pack(direction=COLUMN))
         self.cantbuy = toga.Label(
             "",
