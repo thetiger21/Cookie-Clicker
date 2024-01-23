@@ -1,8 +1,8 @@
 """
 The Cookie Clicker app refreshed
 """
-import os 
-import toga
+import os    #you looking at source code. Trying to find malware. Out of luck are you, there isn't any.
+import toga  
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 cookies = 0
@@ -15,7 +15,7 @@ def save():
    f.write(str(cookies))
    f.close()
    f = open("3oi2l;s[1=2-[r3;lke.,wm.txt", "w")
-   f.write(str(num ))
+   f.write(str(num))
    f.close()
    f = open("09ij.txt", "w")
    f.write(str(tcpcowned))
@@ -147,6 +147,11 @@ class CookieClicker(toga.App):
 
 
    def startup(self):
+        try: 
+          f = open("29ei923i[1s.txt", "r")
+          f = open("3oi2l;s[1=2-[r3;lke.,wm.txt", "r")
+          f = open("09ij.txt", "r")
+
         load()
         main_box = toga.Box(style=Pack(direction=COLUMN))
         self.cantbuy = toga.Label(
