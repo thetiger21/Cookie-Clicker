@@ -1,7 +1,7 @@
 """
 The Cookie Clicker app refreshed
 """
-import os    #you looking at source code. Trying to find malware. Out of luck are you, there isn't any.
+import os    
 import toga  
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
@@ -147,9 +147,9 @@ class CookieClicker(toga.App):
 
    def startup(self):
         try:
-           load()
+          load()
         except:
-           reset()
+          reset()
         main_box = toga.Box(style=Pack(direction=COLUMN))
         self.cantbuy = toga.Label(
             "",
@@ -160,14 +160,16 @@ class CookieClicker(toga.App):
             style=Pack(padding=(0, 5))
         )
         cookie = toga.Button(
-            "cookie!",
+            "🍪",
             on_press=self.clickedcookies,
-            style=Pack(padding=5)
+            style=Pack(padding=10)
         )
+        upgrades = toga.Button("Upgrades", on_press=self.upgrades, style=Pack(padding=5))
         name_box = toga.Box(style=Pack(direction=ROW, padding=5))
         name_box.add(self.cookievalue)
         main_box.add(name_box)
         main_box.add(cookie)
+        main_box.add(upgrades)
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_window.content = main_box
         self.main_window.show()
@@ -179,7 +181,21 @@ class CookieClicker(toga.App):
        yield 0.1
        self.cookievalue.text = cookies
        save()
-        
-    
+       
+   def upgrades(self, widget):
+       return Upgrades
+
+
+
+class Upgrades(toga.App):
+
+
+   def startup(self):
+        Upgrades = toga.Box(style=Pack(direction=COLUMN))
+        Upgrades.add(toga.Box(style=Pack(direction=ROW, padding=5)))
+        self.Upgrades = toga.MainWindow(title=self.formal_name)
+        self.Upgrades.content = main_box
+        self.Upgrades.show()
+
 def main():
     return CookieClicker()
