@@ -126,7 +126,7 @@ def tncpc():
 def ncpc():
    global ncpc
    global cookies
-   global num
+   global numsource
    global tnpcowned
    if cookies >= 1000000:
       if tnpcowned == 1:
@@ -141,6 +141,7 @@ def ncpc():
       yield 0.1
       self.cookievalue.text = "Sorry you cannot buy this"
 
+
     
 class CookieClicker(toga.App):
 
@@ -151,6 +152,7 @@ class CookieClicker(toga.App):
         except:
           reset()
         main_box = toga.Box(style=Pack(direction=COLUMN))
+        
         self.cantbuy = toga.Label(
             "",
             style=Pack(padding=(0, 5))
@@ -164,7 +166,7 @@ class CookieClicker(toga.App):
             on_press=self.clickedcookies,
             style=Pack(padding=10)
         )
-        upgrades = toga.Button("Upgrades", on_press=self.upgrades, style=Pack(padding=5))
+        upgrades = toga.Button("Upgrades", on_press=upgrades, style=Pack(padding=5))
         name_box = toga.Box(style=Pack(direction=ROW, padding=5))
         name_box.add(self.cookievalue)
         main_box.add(name_box)
@@ -182,20 +184,8 @@ class CookieClicker(toga.App):
        self.cookievalue.text = cookies
        save()
        
-   def upgrades(self, widget):
-       return Upgrades
-
-
-
-class Upgrades(toga.App):
-
-
-   def startup(self):
-        Upgrades = toga.Box(style=Pack(direction=COLUMN))
-        Upgrades.add(toga.Box(style=Pack(direction=ROW, padding=5)))
-        self.Upgrades = toga.MainWindow(title=self.formal_name)
-        self.Upgrades.content = main_box
-        self.Upgrades.show()
-
+def upgrades():
+    print("hello")
+    
 def main():
     return CookieClicker()
